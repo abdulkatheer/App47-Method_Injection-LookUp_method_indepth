@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="course" class="org.katheer.bean.Course" scope="prototype"/>
+
+    <!--
+    <bean id="student1" class="org.katheer.bean.Student"
+          scope="prototype">
+        <property name="name" value="Abdul Katheer"/>
+        <property name="course" ref="course"/>
+    </bean>
+    -->
+
+    <bean id="student2" class="org.katheer.bean.Student">
+        <property name="name" value="Abdul Katheer"/>
+        <lookup-method name="createCourse" bean="course"/>
+    </bean>
+</beans>
